@@ -15,11 +15,13 @@ Pod::Spec.new do |spec|
   spec.author       = { "RBS" => "rbssupport@bpc.ru" }
   spec.source       = { :git => "https://github.com/romacv/CardKit.git" }
 
-  spec.resources =  "CardKit/banks-info", "CardKit/**/*.lproj/*.strings", "CardKit/CardKit/Images.xcassets", "CardKit/ThreeDSSDK.xcframework"
+  spec.resources =  "CardKit/banks-info", "CardKit/**/*.lproj/*.strings", "CardKit/CardKit/Images.xcassets"
 
   spec.exclude_files = "CardKit/Carthage/*.{h,m}", "CardKit/Carthage/**/**/*.lproj/*.strings"
 
   spec.source_files = 'CardKit/CardKit/*.{h,m}', 'CardKit/CardKit/PaymentFlow/*.{h,m,swift}'
+  
+  spec.ios.vendored_frameworks = 'CardKit/ThreeDSSDK.xcframework'
   
   spec.subspec 'CardKitCore' do |subspec|
     subspec.exclude_files = 'CardKit/CardKitCore/CardKitCore.{h,m}'
